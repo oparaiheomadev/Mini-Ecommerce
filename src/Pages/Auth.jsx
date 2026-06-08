@@ -8,7 +8,7 @@ export default function Auth() {
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
-  const { signup, user, logout, login } = useContext(AuthContext);
+  const { signup, login } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -28,15 +28,11 @@ export default function Auth() {
     } else {
       setError(result.error);
     }
-
-    console.log(result);
   }
   return (
     <div className="page">
       <div className="container">
         <div className="auth-container">
-          {user && <p> loggedin {user.email}</p>}
-          <button onClick={() => logout()}>Logout</button>
           <h1 className="page-title">
             {mode === 'signup' ? 'Signup' : 'Login'}
           </h1>
